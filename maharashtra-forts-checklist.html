@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>महाराष्ट्र किल्ले चेकलिस्ट</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --saffron: #ff6b1a;
+        --deep-saffron: #c94f00;
+        --gold: #d4a017;
+        --dark: #1a0f00;
+        --parchment: #f5ecd7;
+        --stone: #8b7355;
+        --checked-bg: #2d4a1e;
+        --checked-text: #a8d878;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--dark);
+        font-family: "Tiro Devanagari Marathi", serif;
+        min-height: 100vh;
+        background-image:
+          radial-gradient(ellipse at 20% 0%, #3d1a00 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 100%, #1a2d00 0%, transparent 50%);
+      }
+      .page-wrapper {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px 14px 60px;
+      }
+      header {
+        text-align: center;
+        padding: 32px 20px 20px;
+      }
+      .emblem {
+        font-size: 42px;
+        display: block;
+        margin-bottom: 10px;
+        filter: drop-shadow(0 0 20px rgba(255, 107, 26, 0.6));
+        animation: glow 3s ease-in-out infinite;
+      }
+      @keyframes glow {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 20px rgba(255, 107, 26, 0.6));
+        }
+        50% {
+          filter: drop-shadow(0 0 35px rgba(255, 107, 26, 0.9));
+        }
+      }
+      h1 {
+        font-size: clamp(20px, 5vw, 36px);
+        color: var(--saffron);
+        letter-spacing: 2px;
+        text-shadow: 0 2px 20px rgba(255, 107, 26, 0.4);
+        line-height: 1.3;
+      }
+      .subtitle {
+        font-family: "Libre Baskerville", serif;
+        font-style: italic;
+        color: var(--gold);
+        font-size: 12px;
+        margin-top: 6px;
+        opacity: 0.8;
+      }
+      .divider {
+        width: 200px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--saffron),
+          transparent
+        );
+        margin: 16px auto;
+      }
+      .stats-bar {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding: 12px 18px;
+        background: rgba(255, 107, 26, 0.08);
+        border: 1px solid rgba(255, 107, 26, 0.2);
+        border-radius: 8px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+      }
+      .stat {
+        text-align: center;
+      }
+      .stat-num {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--saffron);
+        display: block;
+        font-family: "Libre Baskerville", serif;
+        text-shadow: 0 0 10px rgba(255, 107, 26, 0.5);
+      }
+      .stat-label {
+        font-size: 10px;
+        color: var(--stone);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: "Libre Baskerville", serif;
+      }
+      .progress-container {
+        margin-bottom: 18px;
+      }
+      .progress-bar-bg {
+        height: 7px;
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--deep-saffron),
+          var(--saffron),
+          var(--gold)
+        );
+        border-radius: 4px;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 10px rgba(255, 107, 26, 0.5);
+      }
+      .progress-text {
+        text-align: right;
+        font-size: 11px;
+        color: var(--stone);
+        margin-top: 4px;
+        font-family: "Libre Baskerville", serif;
+      }
+      .controls {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+      }
+      .search-box {
+        flex: 1;
+        min-width: 150px;
+        padding: 8px 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 107, 26, 0.2);
+        border-radius: 6px;
+        color: var(--parchment);
+        font-size: 14px;
+        font-family: "Tiro Devanagari Marathi", serif;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .search-box::placeholder {
+        color: var(--stone);
+        opacity: 0.6;
+      }
+      .search-box:focus {
+        border-color: var(--saffron);
+      }
+      .btn {
+        padding: 7px 13px;
+        border: 1px solid rgba(255, 107, 26, 0.3);
+        background: rgba(255, 107, 26, 0.08);
+        color: var(--saffron);
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 12px;
+        font-family: "Tiro Devanagari Marathi", serif;
+        transition: all 0.2s;
+      }
+      .btn:hover {
+        background: rgba(255, 107, 26, 0.18);
+        border-color: var(--saffron);
+      }
+      .btn-danger {
+        border-color: rgba(180, 60, 60, 0.3);
+        background: rgba(180, 60, 60, 0.06);
+        color: #e07070;
+      }
+      .btn-danger:hover {
+        background: rgba(180, 60, 60, 0.15);
+        border-color: #e07070;
+      }
+
+      /* District filter pills */
+      .dist-filter {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .dist-label {
+        font-size: 11px;
+        color: var(--stone);
+        font-family: "Libre Baskerville", serif;
+        flex-shrink: 0;
+      }
+      .dist-btn {
+        padding: 4px 11px;
+        border: 1px solid rgba(255, 107, 26, 0.2);
+        background: transparent;
+        color: var(--stone);
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 11px;
+        font-family: "Tiro Devanagari Marathi", serif;
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .dist-btn.active {
+        background: rgba(255, 107, 26, 0.15);
+        border-color: var(--saffron);
+        color: var(--saffron);
+      }
+
+      /* District section header */
+      .section-header {
+        padding: 9px 14px;
+        background: rgba(255, 107, 26, 0.1);
+        border-left: 3px solid var(--saffron);
+        margin: 20px 0 8px;
+        border-radius: 0 6px 6px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+      }
+      .section-header:hover {
+        background: rgba(255, 107, 26, 0.15);
+      }
+      .section-title {
+        color: var(--saffron);
+        font-size: 13px;
+        font-family: "Libre Baskerville", serif;
+        font-weight: 700;
+      }
+      .section-meta {
+        color: var(--stone);
+        font-size: 11px;
+        font-family: "Libre Baskerville", serif;
+        font-style: italic;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .section-progress {
+        font-size: 10px;
+        color: var(--gold);
+      }
+      .collapse-icon {
+        color: var(--stone);
+        font-size: 12px;
+        transition: transform 0.2s;
+        margin-left: 8px;
+      }
+      .section-header.collapsed .collapse-icon {
+        transform: rotate(-90deg);
+      }
+
+      .fort-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+        gap: 7px;
+        margin-bottom: 4px;
+      }
+      .fort-grid.collapsed-grid {
+        display: none;
+      }
+
+      .fort-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 11px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 107, 26, 0.1);
+        border-radius: 7px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+      }
+      .fort-item:hover {
+        border-color: rgba(255, 107, 26, 0.35);
+        background: rgba(255, 107, 26, 0.06);
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+      }
+      .fort-item.checked {
+        background: rgba(45, 74, 30, 0.35);
+        border-color: rgba(100, 180, 60, 0.35);
+      }
+      .fort-item.checked .fort-name {
+        color: var(--checked-text);
+        text-decoration: line-through;
+        text-decoration-color: rgba(168, 216, 120, 0.5);
+      }
+      .fort-item.hidden {
+        display: none;
+      }
+      .checkbox {
+        width: 17px;
+        height: 17px;
+        border: 2px solid rgba(255, 107, 26, 0.4);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s;
+        background: rgba(0, 0, 0, 0.2);
+      }
+      .fort-item.checked .checkbox {
+        background: var(--checked-bg);
+        border-color: #64b43c;
+      }
+      .checkmark {
+        color: #64b43c;
+        font-size: 10px;
+        opacity: 0;
+        transform: scale(0.5);
+        transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .fort-item.checked .checkmark {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .fort-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .fort-name {
+        font-size: 13px;
+        color: var(--parchment);
+        transition: color 0.2s;
+        line-height: 1.3;
+      }
+      .fort-dist {
+        font-size: 9px;
+        color: var(--stone);
+        font-family: "Libre Baskerville", serif;
+        margin-top: 2px;
+      }
+      .fort-num {
+        font-size: 9px;
+        color: var(--stone);
+        font-family: "Libre Baskerville", serif;
+        min-width: 18px;
+        flex-shrink: 0;
+        opacity: 0.55;
+      }
+      .no-results {
+        text-align: center;
+        color: var(--stone);
+        padding: 40px;
+        font-style: italic;
+        display: none;
+      }
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        color: var(--stone);
+        font-size: 11px;
+        font-family: "Libre Baskerville", serif;
+        opacity: 0.6;
+        font-style: italic;
+      }
+      @media (max-width: 480px) {
+        .fort-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header>
+        <span class="emblem">🏰</span>
+        <h1>महाराष्ट्राचे किल्ले</h1>
+        <p class="subtitle">
+          जिल्ह्यानुसार संपूर्ण चेकलिस्ट — पुण्यापासून अंतरासह
+        </p>
+        <div class="divider"></div>
+      </header>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-num" id="visited-count">0</span
+          ><span class="stat-label">भेट दिली</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="total-count">0</span
+          ><span class="stat-label">एकूण किल्ले</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="remaining-count">0</span
+          ><span class="stat-label">बाकी आहे</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" id="percent">0%</span
+          ><span class="stat-label">पूर्ण झाले</span>
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar-bg">
+          <div
+            class="progress-bar-fill"
+            id="progress-fill"
+            style="width: 0%"
+          ></div>
+        </div>
+        <div class="progress-text" id="progress-text">0 / 0 किल्ले</div>
+      </div>
+
+      <div class="controls">
+        <input
+          class="search-box"
+          type="text"
+          id="search"
+          placeholder="किल्ला शोधा..."
+        />
+        <button class="btn" onclick="checkAll()">सर्व चेक करा</button>
+        <button class="btn btn-danger" onclick="clearAll()">
+          सर्व साफ करा
+        </button>
+      </div>
+
+      <div class="dist-filter">
+        <span class="dist-label">जिल्हा:</span>
+        <button class="dist-btn active" onclick="filterDistrict('all', this)">
+          सर्व
+        </button>
+      </div>
+
+      <div id="fort-sections"></div>
+      <div class="no-results" id="no-results">कोणताही किल्ला सापडला नाही</div>
+      <footer>जय महाराष्ट्र · जय शिवाजी महाराज 🏔</footer>
+    </div>
+
+    <script>
+      const RAW = [
+        // पालघर जिल्हा
+        { n: "बल्लाळगड", d: 225, r: "पालघर" },
+        { n: "डहाणू", d: 225, r: "पालघर" },
+        { n: "गंभीरगड", d: 225, r: "पालघर" },
+        { n: "सेगवा", d: 225, r: "पालघर" },
+        { n: "तारापूर", d: 190, r: "पालघर" },
+        { n: "असावगड", d: 190, r: "पालघर" },
+        { n: "अशेरीगड", d: 190, r: "पालघर" },
+        { n: "भूपतगड", d: 190, r: "पालघर" },
+        { n: "काळदुर्ग", d: 190, r: "पालघर" },
+        { n: "तांदुळवाडी", d: 190, r: "पालघर" },
+        { n: "शिरगाव", d: 175, r: "पालघर" },
+        { n: "माहीम", d: 175, r: "पालघर" },
+        { n: "केळवे", d: 175, r: "पालघर" },
+        { n: "केळवे पाणकोट", d: 175, r: "पालघर" },
+        { n: "भवानगड", d: 175, r: "पालघर" },
+        { n: "टकमक", d: 175, r: "पालघर" },
+        { n: "मनोर", d: 175, r: "पालघर" },
+        { n: "दातिवरे", d: 175, r: "पालघर" },
+        { n: "कोहोज", d: 175, r: "पालघर" },
+        { n: "जीवदानी", d: 175, r: "पालघर" },
+        { n: "कामनदुर्ग", d: 175, r: "पालघर" },
+        { n: "वसई", d: 160, r: "पालघर" },
+        { n: "अर्नाळा", d: 160, r: "पालघर" },
+        { n: "वज्रगड", d: 160, r: "पालघर" },
+        { n: "मांडवी", d: 160, r: "पालघर" },
+        // ठाणे जिल्हा
+        { n: "बळवंतगड", d: 140, r: "ठाणे" },
+        { n: "पळसदुर्ग", d: 140, r: "ठाणे" },
+        { n: "माहुलीगड", d: 140, r: "ठाणे" },
+        { n: "भंडारदुर्ग", d: 140, r: "ठाणे" },
+        { n: "गुमतारा", d: 150, r: "ठाणे" },
+        { n: "धारावीचा किल्ला", d: 150, r: "ठाणे" },
+        { n: "घोडबंदर", d: 150, r: "ठाणे" },
+        { n: "बेलापूरचा किल्ला", d: 150, r: "ठाणे" },
+        { n: "दुर्गाडी", d: 150, r: "ठाणे" },
+        { n: "श्रीमलंगगड", d: 130, r: "ठाणे" },
+        { n: "चंदेरी", d: 130, r: "ठाणे" },
+        { n: "सिद्धगड", d: 130, r: "ठाणे" },
+        { n: "गोरखगड", d: 130, r: "ठाणे" },
+        { n: "मच्छिंद्रगड", d: 130, r: "ठाणे" },
+        { n: "भैरवगड (मोरोशी)", d: 130, r: "ठाणे" },
+        // मुंबई जिल्हा
+        { n: "काळा किल्ला", d: 150, r: "मुंबई" },
+        { n: "शीव", d: 150, r: "मुंबई" },
+        { n: "माहीम (मुंबई)", d: 150, r: "मुंबई" },
+        { n: "वरळी", d: 150, r: "मुंबई" },
+        { n: "शिवडी", d: 150, r: "मुंबई" },
+        { n: "मुंबई किल्ला", d: 150, r: "मुंबई" },
+        { n: "वांद्रेचा किल्ला", d: 150, r: "मुंबई" },
+        { n: "वेसावे", d: 150, r: "मुंबई" },
+        // रायगड जिल्हा
+        { n: "प्रबळगड", d: 100, r: "रायगड" },
+        { n: "कर्नाळा", d: 100, r: "रायगड" },
+        { n: "माणिकगड (रायगड)", d: 100, r: "रायगड" },
+        { n: "इर्शाळगड", d: 100, r: "रायगड" },
+        { n: "पेब", d: 100, r: "रायगड" },
+        { n: "पदरगड", d: 100, r: "रायगड" },
+        { n: "कोथळीगड", d: 100, r: "रायगड" },
+        { n: "भिवगड", d: 100, r: "रायगड" },
+        { n: "ढाक", d: 100, r: "रायगड" },
+        { n: "सोनगिरी", d: 130, r: "रायगड" },
+        { n: "सोंडाई", d: 130, r: "रायगड" },
+        { n: "तुंगी", d: 130, r: "रायगड" },
+        { n: "घारापुरी", d: 130, r: "रायगड" },
+        { n: "द्रोणागिरी", d: 130, r: "रायगड" },
+        { n: "सांकशी", d: 130, r: "रायगड" },
+        { n: "रतनगड (रायगड)", d: 130, r: "रायगड" },
+        { n: "मिरगड", d: 130, r: "रायगड" },
+        { n: "खांदेरी", d: 130, r: "रायगड" },
+        { n: "उंदेरी", d: 130, r: "रायगड" },
+        { n: "खुबलढा किल्ला", d: 130, r: "रायगड" },
+        { n: "कुलाबा", d: 130, r: "रायगड" },
+        { n: "सर्जेकोट (कुलाबा)", d: 130, r: "रायगड" },
+        { n: "सागरगड", d: 130, r: "रायगड" },
+        { n: "रेवदंडा", d: 130, r: "रायगड" },
+        { n: "हिराकोट", d: 130, r: "रायगड" },
+        { n: "रामदरणे", d: 130, r: "रायगड" },
+        { n: "राजकोट (चौल)", d: 130, r: "रायगड" },
+        { n: "कोरलाई", d: 130, r: "रायगड" },
+        { n: "सामराजगड", d: 130, r: "रायगड" },
+        { n: "पद्मदुर्ग", d: 165, r: "रायगड" },
+        { n: "जंजिरा", d: 165, r: "रायगड" },
+        { n: "मृगगड", d: 165, r: "रायगड" },
+        { n: "सरसगड", d: 165, r: "रायगड" },
+        { n: "सुधागड", d: 165, r: "रायगड" },
+        { n: "अवचितगड", d: 165, r: "रायगड" },
+        { n: "सूरगड", d: 165, r: "रायगड" },
+        { n: "बिरवाडी", d: 165, r: "रायगड" },
+        { n: "घोसाळगड", d: 165, r: "रायगड" },
+        { n: "तळागड", d: 165, r: "रायगड" },
+        { n: "कुर्डूगड", d: 165, r: "रायगड" },
+        { n: "मानगड", d: 165, r: "रायगड" },
+        { n: "पन्हाळेदुर्ग", d: 165, r: "रायगड" },
+        { n: "रायगड", d: 165, r: "रायगड" },
+        { n: "पाचाड कोट", d: 165, r: "रायगड" },
+        { n: "लिंगाणा", d: 165, r: "रायगड" },
+        { n: "सोनगड (रायगड)", d: 165, r: "रायगड" },
+        { n: "चांभारगड", d: 165, r: "रायगड" },
+        { n: "मंगळगड", d: 165, r: "रायगड" },
+        { n: "कोकणदिवा", d: 165, r: "रायगड" },
+        { n: "दासगाव", d: 165, r: "रायगड" },
+        { n: "मदगड", d: 165, r: "रायगड" },
+        { n: "चंद्रगड", d: 165, r: "रायगड" },
+        { n: "कोंढवी", d: 165, r: "रायगड" },
+        // रत्नागिरी जिल्हा
+        { n: "बाणकोट किल्ला", d: 215, r: "रत्नागिरी" },
+        { n: "मंडणगड", d: 215, r: "रत्नागिरी" },
+        { n: "गोवागड", d: 215, r: "रत्नागिरी" },
+        { n: "फत्तेदुर्ग", d: 215, r: "रत्नागिरी" },
+        { n: "कनकदुर्ग", d: 215, r: "रत्नागिरी" },
+        { n: "सुवर्णदुर्ग", d: 215, r: "रत्नागिरी" },
+        { n: "पद्मनाभदुर्ग", d: 215, r: "रत्नागिरी" },
+        { n: "पालगड", d: 215, r: "रत्नागिरी" },
+        { n: "महीपतगड", d: 195, r: "रत्नागिरी" },
+        { n: "सुमारगड", d: 195, r: "रत्नागिरी" },
+        { n: "रसाळगड", d: 195, r: "रत्नागिरी" },
+        { n: "गोवळकोट", d: 195, r: "रत्नागिरी" },
+        { n: "बारवाई", d: 195, r: "रत्नागिरी" },
+        { n: "कोळकेवाडी", d: 195, r: "रत्नागिरी" },
+        { n: "गोपाळगड", d: 195, r: "रत्नागिरी" },
+        { n: "कासारदुर्ग", d: 195, r: "रत्नागिरी" },
+        { n: "विजयगड", d: 250, r: "रत्नागिरी" },
+        { n: "जयगड", d: 250, r: "रत्नागिरी" },
+        { n: "रत्नदुर्ग", d: 250, r: "रत्नागिरी" },
+        { n: "पूर्णगड", d: 250, r: "रत्नागिरी" },
+        { n: "साटवली", d: 250, r: "रत्नागिरी" },
+        { n: "भवानीगड", d: 250, r: "रत्नागिरी" },
+        { n: "महीमतगड", d: 250, r: "रत्नागिरी" },
+        { n: "प्रचितगड (रत्नागिरी)", d: 250, r: "रत्नागिरी" },
+        { n: "आंबोळगड", d: 250, r: "रत्नागिरी" },
+        { n: "यशवंतगड (नाटे)", d: 250, r: "रत्नागिरी" },
+        { n: "राजापूर गढी", d: 250, r: "रत्नागिरी" },
+        // सिंधुदुर्ग जिल्हा
+        { n: "विजयदुर्ग", d: 390, r: "सिंधुदुर्ग" },
+        { n: "देवगड", d: 390, r: "सिंधुदुर्ग" },
+        { n: "सदानंदगड", d: 390, r: "सिंधुदुर्ग" },
+        { n: "रामगड", d: 390, r: "सिंधुदुर्ग" },
+        { n: "भगवंतगड", d: 390, r: "सिंधुदुर्ग" },
+        { n: "भरतगड", d: 390, r: "सिंधुदुर्ग" },
+        { n: "सिद्धगड (सिंधुदुर्ग)", d: 390, r: "सिंधुदुर्ग" },
+        { n: "वेताळगड", d: 390, r: "सिंधुदुर्ग" },
+        { n: "सर्जेकोट (मालवण)", d: 390, r: "सिंधुदुर्ग" },
+        { n: "राजकोट (सिंधुदुर्ग)", d: 430, r: "सिंधुदुर्ग" },
+        { n: "पद्मगड", d: 430, r: "सिंधुदुर्ग" },
+        { n: "सिंधुदुर्ग", d: 430, r: "सिंधुदुर्ग" },
+        { n: "निवती", d: 430, r: "सिंधुदुर्ग" },
+        { n: "यशवंतगड (रेडी)", d: 430, r: "सिंधुदुर्ग" },
+        { n: "डच वखार", d: 430, r: "सिंधुदुर्ग" },
+        { n: "खारेपाटण", d: 430, r: "सिंधुदुर्ग" },
+        { n: "भैरवगड (नरडवे)", d: 430, r: "सिंधुदुर्ग" },
+        { n: "मनोहरगड", d: 430, r: "सिंधुदुर्ग" },
+        { n: "मनसंतोषगड", d: 430, r: "सिंधुदुर्ग" },
+        { n: "सोनगड (घोटगे)", d: 430, r: "सिंधुदुर्ग" },
+        { n: "नारायणगड (आंबोली)", d: 430, r: "सिंधुदुर्ग" },
+        { n: "महादेवगड", d: 430, r: "सिंधुदुर्ग" },
+        { n: "बांदा", d: 430, r: "सिंधुदुर्ग" },
+        { n: "सावंतवाडी कोट", d: 430, r: "सिंधुदुर्ग" },
+        { n: "हनुमंतगड", d: 430, r: "सिंधुदुर्ग" },
+        // नंदुरबार जिल्हा
+        { n: "अक्काराणीचा किल्ला", d: 430, r: "नंदुरबार" },
+        { n: "फत्तेपूर", d: 430, r: "नंदुरबार" },
+        { n: "नंदूरबार", d: 430, r: "नंदुरबार" },
+        { n: "नारायणपूर", d: 430, r: "नंदुरबार" },
+        { n: "सुलतानपूर", d: 430, r: "नंदुरबार" },
+        { n: "मंदाने", d: 430, r: "नंदुरबार" },
+        { n: "जयनगर", d: 430, r: "नंदुरबार" },
+        { n: "कोंढवळ", d: 430, r: "नंदुरबार" },
+        // धुळे जिल्हा
+        { n: "रायकोट", d: 265, r: "धुळे" },
+        { n: "भामेर", d: 265, r: "धुळे" },
+        { n: "थाळनेर", d: 265, r: "धुळे" },
+        { n: "सोनगीर", d: 265, r: "धुळे" },
+        { n: "लळींग", d: 265, r: "धुळे" },
+        // जळगाव जिल्हा
+        { n: "लासूर", d: 305, r: "जळगाव" },
+        { n: "चौगाव", d: 305, r: "जळगाव" },
+        { n: "पाल", d: 305, r: "जळगाव" },
+        { n: "नशिराबाद", d: 305, r: "जळगाव" },
+        { n: "वरखेडा", d: 305, r: "जळगाव" },
+        { n: "तोडापूर", d: 305, r: "जळगाव" },
+        { n: "रसलपूर", d: 260, r: "जळगाव" },
+        { n: "अंमळनेर", d: 260, r: "जळगाव" },
+        { n: "पारोळा", d: 260, r: "जळगाव" },
+        { n: "कन्हेरगड", d: 260, r: "जळगाव" },
+        { n: "राजदेहेर", d: 260, r: "जळगाव" },
+        { n: "बहादरपूर किल्ला", d: 260, r: "जळगाव" },
+        // नाशिक जिल्हा
+        { n: "रतनगड (नाशिक)", d: 260, r: "नाशिक" },
+        { n: "पिसोळगड", d: 260, r: "नाशिक" },
+        { n: "डेरमाळ", d: 260, r: "नाशिक" },
+        { n: "साल्हेर", d: 260, r: "नाशिक" },
+        { n: "सालोटा", d: 260, r: "नाशिक" },
+        { n: "हरगड", d: 260, r: "नाशिक" },
+        { n: "मुल्हेर", d: 260, r: "नाशिक" },
+        { n: "मोरागड", d: 260, r: "नाशिक" },
+        { n: "भिलाई", d: 260, r: "नाशिक" },
+        { n: "चौल्हेर", d: 260, r: "नाशिक" },
+        { n: "बिष्टा", d: 260, r: "नाशिक" },
+        { n: "कऱ्हेगड", d: 260, r: "नाशिक" },
+        { n: "दुंधागड", d: 260, r: "नाशिक" },
+        { n: "अजमेर", d: 230, r: "नाशिक" },
+        { n: "हातगड", d: 230, r: "नाशिक" },
+        { n: "कंडाळा", d: 230, r: "नाशिक" },
+        { n: "प्रेमगिरी", d: 230, r: "नाशिक" },
+        { n: "अचला", d: 230, r: "नाशिक" },
+        { n: "अहिवंत", d: 230, r: "नाशिक" },
+        { n: "मार्कंड्या किल्ला", d: 230, r: "नाशिक" },
+        { n: "रवळ्या", d: 230, r: "नाशिक" },
+        { n: "जवळ्या", d: 230, r: "नाशिक" },
+        { n: "कणहेरगड", d: 230, r: "नाशिक" },
+        { n: "धोडप", d: 230, r: "नाशिक" },
+        { n: "कांचनगड", d: 230, r: "नाशिक" },
+        { n: "मोहनदर", d: 200, r: "नाशिक" },
+        { n: "गाळणा", d: 200, r: "नाशिक" },
+        { n: "कंक्राळा", d: 200, r: "नाशिक" },
+        { n: "मालेगावचा किल्ला", d: 200, r: "नाशिक" },
+        { n: "सोनगिरी (पेठ)", d: 200, r: "नाशिक" },
+        { n: "खैराई", d: 200, r: "नाशिक" },
+        { n: "रामशेज", d: 200, r: "नाशिक" },
+        { n: "देहेरगड", d: 200, r: "नाशिक" },
+        { n: "राजधेर", d: 200, r: "नाशिक" },
+        { n: "कोळधेर", d: 200, r: "नाशिक" },
+        { n: "इंद्राई किल्ला", d: 200, r: "नाशिक" },
+        { n: "चांदवड", d: 200, r: "नाशिक" },
+        { n: "मेसणा", d: 200, r: "नाशिक" },
+        { n: "कात्रा", d: 200, r: "नाशिक" },
+        { n: "अंकाई", d: 200, r: "नाशिक" },
+        { n: "टंकाई", d: 200, r: "नाशिक" },
+        { n: "मणिकपुंज", d: 200, r: "नाशिक" },
+        { n: "वाघेरा", d: 200, r: "नाशिक" },
+        { n: "भास्करगड", d: 200, r: "नाशिक" },
+        { n: "हर्षगड", d: 200, r: "नाशिक" },
+        { n: "श्रीगड (त्र्यंबकगड)", d: 200, r: "नाशिक" },
+        { n: "अंजनेरी", d: 200, r: "नाशिक" },
+        { n: "रांजणगिरी", d: 200, r: "नाशिक" },
+        { n: "घारगड", d: 200, r: "नाशिक" },
+        { n: "कावनई", d: 200, r: "नाशिक" },
+        { n: "त्रिंगलवाडी", d: 200, r: "नाशिक" },
+        { n: "मोरधन", d: 200, r: "नाशिक" },
+        { n: "बहुला", d: 200, r: "नाशिक" },
+        { n: "औंढा (सिन्नर)", d: 200, r: "नाशिक" },
+        { n: "आड", d: 200, r: "नाशिक" },
+        { n: "डुबेरगड", d: 200, r: "नाशिक" },
+        { n: "पर्वतगड", d: 200, r: "नाशिक" },
+        { n: "सोनगड (नाशिक)", d: 200, r: "नाशिक" },
+        // अहिल्यानगर जिल्हा
+        { n: "पट्टागड (विश्रामगड)", d: 165, r: "अहिल्यानगर" },
+        { n: "बितनगड", d: 165, r: "अहिल्यानगर" },
+        { n: "कुलंगगड", d: 165, r: "अहिल्यानगर" },
+        { n: "मदनगड", d: 165, r: "अहिल्यानगर" },
+        { n: "अलंगगड", d: 165, r: "अहिल्यानगर" },
+        { n: "रतनगड (अहिल्यानगर)", d: 165, r: "अहिल्यानगर" },
+        { n: "कलाडगड", d: 165, r: "अहिल्यानगर" },
+        { n: "भैरवगड (शिरपुंजे)", d: 165, r: "अहिल्यानगर" },
+        { n: "पाबरगड", d: 165, r: "अहिल्यानगर" },
+        { n: "हरिश्चंद्रगड", d: 165, r: "अहिल्यानगर" },
+        { n: "भैरवगड (कोथळे)", d: 165, r: "अहिल्यानगर" },
+        { n: "कुंजरगड", d: 165, r: "अहिल्यानगर" },
+        { n: "पेमगिरी", d: 120, r: "अहिल्यानगर" },
+        { n: "पळशी", d: 120, r: "अहिल्यानगर" },
+        { n: "जामगाव", d: 120, r: "अहिल्यानगर" },
+        { n: "बहादूरगड", d: 120, r: "अहिल्यानगर" },
+        { n: "खर्डा", d: 120, r: "अहिल्यानगर" },
+        { n: "अहिल्यानगरचा भुईकोट किल्ला", d: 120, r: "अहिल्यानगर" },
+        { n: "मांजरसुंबा गड", d: 120, r: "अहिल्यानगर" },
+        // पुणे जिल्हा
+        { n: "सिंदोळा", d: 90, r: "पुणे" },
+        { n: "बेल्हे भुईकोटकिल्ला", d: 90, r: "पुणे" },
+        { n: "जुन्नर", d: 90, r: "पुणे" },
+        { n: "हडसर", d: 90, r: "पुणे" },
+        { n: "निमगिरी", d: 90, r: "पुणे" },
+        { n: "जीवधन", d: 90, r: "पुणे" },
+        { n: "चावंड", d: 90, r: "पुणे" },
+        { n: "शिवनेरी", d: 90, r: "पुणे" },
+        { n: "नारायणगड", d: 90, r: "पुणे" },
+        { n: "भोरगिरी", d: 110, r: "पुणे" },
+        { n: "चाकण (संग्रामदुर्ग)", d: 30, r: "पुणे" },
+        { n: "राजमाची", d: 65, r: "पुणे" },
+        { n: "इंदुरीची गढी", d: 65, r: "पुणे" },
+        { n: "विसापूर", d: 65, r: "पुणे" },
+        { n: "लोहगड", d: 65, r: "पुणे" },
+        { n: "अणघाई", d: 65, r: "पुणे" },
+        { n: "मोरगिरी", d: 65, r: "पुणे" },
+        { n: "तुंग", d: 65, r: "पुणे" },
+        { n: "तिकोना", d: 65, r: "पुणे" },
+        { n: "कोरीगड", d: 65, r: "पुणे" },
+        { n: "घनगड", d: 65, r: "पुणे" },
+        { n: "कैलासगड", d: 30, r: "पुणे" },
+        { n: "सिंहगड", d: 30, r: "पुणे" },
+        { n: "मल्हारगड", d: 30, r: "पुणे" },
+        { n: "दौलतमंगळ", d: 55, r: "पुणे" },
+        { n: "पुरंदर", d: 55, r: "पुणे" },
+        { n: "वज्रगड (पुरंदर)", d: 55, r: "पुणे" },
+        { n: "तोरणा", d: 55, r: "पुणे" },
+        { n: "राजगड", d: 55, r: "पुणे" },
+        { n: "कावळ्या किल्ला", d: 55, r: "पुणे" },
+        { n: "रोहिडा", d: 55, r: "पुणे" },
+        { n: "रायरेश्वर", d: 55, r: "पुणे" },
+        // सातारा जिल्हा
+        { n: "पांडवगड", d: 75, r: "सातारा" },
+        { n: "केंजळगड", d: 75, r: "सातारा" },
+        { n: "कमळगड", d: 75, r: "सातारा" },
+        { n: "वैराटगड", d: 75, r: "सातारा" },
+        { n: "चंदनगड", d: 75, r: "सातारा" },
+        { n: "वंदनगड", d: 75, r: "सातारा" },
+        { n: "नांदगिरी (कल्याणगड)", d: 115, r: "सातारा" },
+        { n: "वर्धनगड", d: 115, r: "सातारा" },
+        { n: "भूषणगड", d: 115, r: "सातारा" },
+        { n: "नांदोशी", d: 115, r: "सातारा" },
+        { n: "महीमानगड", d: 115, r: "सातारा" },
+        { n: "संतोषगड", d: 115, r: "सातारा" },
+        { n: "वारूगड", d: 115, r: "सातारा" },
+        { n: "प्रतापगड", d: 135, r: "सातारा" },
+        { n: "मधुमकरंदगड", d: 135, r: "सातारा" },
+        { n: "महीमंडणगड", d: 135, r: "सातारा" },
+        { n: "वासोटा", d: 135, r: "सातारा" },
+        { n: "सज्जनगड", d: 135, r: "सातारा" },
+        { n: "अजिंक्यतारा", d: 135, r: "सातारा" },
+        { n: "जंगली जयगड", d: 165, r: "सातारा" },
+        { n: "दातेगड", d: 165, r: "सातारा" },
+        { n: "बहिरवगड", d: 165, r: "सातारा" },
+        { n: "गुणवंतगड", d: 165, r: "सातारा" },
+        { n: "वसंतगड", d: 165, r: "सातारा" },
+        { n: "सदाशिवगड", d: 165, r: "सातारा" },
+        // सांगली जिल्हा
+        { n: "प्रचितगड (सांगली)", d: 145, r: "सांगली" },
+        { n: "शिराळा", d: 145, r: "सांगली" },
+        { n: "मच्छिंद्रगड (सांगली)", d: 145, r: "सांगली" },
+        { n: "विलासगड", d: 145, r: "सांगली" },
+        { n: "बहादूरवाडी", d: 235, r: "सांगली" },
+        { n: "बागणी", d: 235, r: "सांगली" },
+        { n: "सांगलीचा भुईकोट किल्ला", d: 235, r: "सांगली" },
+        { n: "मिरज", d: 235, r: "सांगली" },
+        { n: "जुना पन्हाळा", d: 235, r: "सांगली" },
+        { n: "कोळदुर्ग", d: 235, r: "सांगली" },
+        { n: "भूपाळगड", d: 235, r: "सांगली" },
+        { n: "रामदुर्ग", d: 235, r: "सांगली" },
+        // कोल्हापूर जिल्हा
+        { n: "विशाळगड", d: 250, r: "कोल्हापूर" },
+        { n: "पावनगड", d: 250, r: "कोल्हापूर" },
+        { n: "पन्हाळा", d: 250, r: "कोल्हापूर" },
+        { n: "मुडागड", d: 250, r: "कोल्हापूर" },
+        { n: "गगनगड", d: 250, r: "कोल्हापूर" },
+        { n: "साळवणचा किल्ला", d: 250, r: "कोल्हापूर" },
+        { n: "शिवगड", d: 250, r: "कोल्हापूर" },
+        { n: "रांगणा", d: 250, r: "कोल्हापूर" },
+        { n: "भूदरगड", d: 235, r: "कोल्हापूर" },
+        { n: "सामानगड", d: 235, r: "कोल्हापूर" },
+        { n: "गंधर्वगड", d: 235, r: "कोल्हापूर" },
+        { n: "महीपालगड", d: 235, r: "कोल्हापूर" },
+        { n: "कलानंदीगड", d: 235, r: "कोल्हापूर" },
+        { n: "पारगड", d: 235, r: "कोल्हापूर" },
+        { n: "राजगोली भुईकोट", d: 235, r: "कोल्हापूर" },
+        { n: "कोट करवीर", d: 235, r: "कोल्हापूर" },
+        // सोलापूर जिल्हा
+        { n: "करमाळा", d: 250, r: "सोलापूर" },
+        { n: "माढा", d: 250, r: "सोलापूर" },
+        { n: "मोहोळ", d: 250, r: "सोलापूर" },
+        { n: "अकलूज", d: 250, r: "सोलापूर" },
+        { n: "पिलीव", d: 250, r: "सोलापूर" },
+        { n: "सांगोला", d: 250, r: "सोलापूर" },
+        { n: "मंगळवेढे", d: 250, r: "सोलापूर" },
+        { n: "माचणूरचा किल्ला", d: 250, r: "सोलापूर" },
+        { n: "सोलापूरचा भुईकोट किल्ला", d: 250, r: "सोलापूर" },
+        // छत्रपती संभाजीनगर जिल्हा
+        { n: "फर्दापूर सराई", d: 280, r: "छत्रपती संभाजीनगर" },
+        { n: "वेताळगड (वेताळवाडी)", d: 280, r: "छत्रपती संभाजीनगर" },
+        { n: "तलतम (जंजाळा)", d: 280, r: "छत्रपती संभाजीनगर" },
+        { n: "सुतोंडा", d: 280, r: "छत्रपती संभाजीनगर" },
+        { n: "अजिंठा सराई", d: 280, r: "छत्रपती संभाजीनगर" },
+        { n: "अजिंठा", d: 280, r: "छत्रपती संभाजीनगर" },
+        { n: "अंतूर", d: 235, r: "छत्रपती संभाजीनगर" },
+        { n: "लोंझा", d: 235, r: "छत्रपती संभाजीनगर" },
+        { n: "पेडका", d: 235, r: "छत्रपती संभाजीनगर" },
+        { n: "लहूगड", d: 235, r: "छत्रपती संभाजीनगर" },
+        { n: "देवगिरी किल्ला", d: 235, r: "छत्रपती संभाजीनगर" },
+        { n: "भांगशीगड", d: 235, r: "छत्रपती संभाजीनगर" },
+        // जालना जिल्हा
+        { n: "मस्तगड", d: 280, r: "जालना" },
+        { n: "रोहिलगड", d: 280, r: "जालना" },
+        // परभणी जिल्हा
+        { n: "जिंतूर", d: 350, r: "परभणी" },
+        { n: "पाथरी", d: 350, r: "परभणी" },
+        // नांदेड जिल्हा
+        { n: "माहूर", d: 480, r: "नांदेड" },
+        { n: "नांदेड", d: 430, r: "नांदेड" },
+        { n: "कंधार", d: 430, r: "नांदेड" },
+        // बीड जिल्हा
+        { n: "धारुर", d: 220, r: "बीड" },
+        { n: "धर्मापुरी", d: 220, r: "बीड" },
+        // धाराशिव जिल्हा
+        { n: "परांडा", d: 250, r: "धाराशिव" },
+        { n: "नळदुर्ग", d: 250, r: "धाराशिव" },
+        // लातूर जिल्हा
+        { n: "औसा", d: 350, r: "लातूर" },
+        { n: "उदगीर", d: 350, r: "लातूर" },
+        // बुलढाणा जिल्हा
+        { n: "मैलगड", d: 420, r: "बुलढाणा" },
+        { n: "मलकापूर", d: 420, r: "बुलढाणा" },
+        { n: "खामगाव", d: 420, r: "बुलढाणा" },
+        { n: "गोधनपूर", d: 420, r: "बुलढाणा" },
+        { n: "रोहिणखेड", d: 420, r: "बुलढाणा" },
+        { n: "सिंदखेड राजा", d: 420, r: "बुलढाणा" },
+        { n: "देऊळगाव राजा", d: 420, r: "बुलढाणा" },
+        // अकोला जिल्हा
+        { n: "भैरवगड (वारी)", d: 480, r: "अकोला" },
+        { n: "नरनाळा", d: 480, r: "अकोला" },
+        { n: "बाळापूर", d: 480, r: "अकोला" },
+        { n: "अकोला किल्ला (असदगड)", d: 480, r: "अकोला" },
+        // अमरावती जिल्हा
+        { n: "झिल्पी आमनेर", d: 530, r: "अमरावती" },
+        { n: "गाविलगड (गवळीगड)", d: 530, r: "अमरावती" },
+        { n: "अचलपूर", d: 530, r: "अमरावती" },
+        // यवतमाळ जिल्हा
+        { n: "कळंब", d: 570, r: "यवतमाळ" },
+        { n: "दुर्ग", d: 570, r: "यवतमाळ" },
+        { n: "रावेरी", d: 570, r: "यवतमाळ" },
+        { n: "कायर", d: 570, r: "यवतमाळ" },
+        // वर्धा जिल्हा
+        { n: "अंजी (मोठी)", d: 650, r: "वर्धा" },
+        { n: "पवनार", d: 650, r: "वर्धा" },
+        { n: "हिंगणी", d: 650, r: "वर्धा" },
+        { n: "केळझर", d: 650, r: "वर्धा" },
+        { n: "नाचणगाव", d: 650, r: "वर्धा" },
+        { n: "सोनेगाव (आबाजी)", d: 650, r: "वर्धा" },
+        { n: "अल्लीपूर", d: 650, r: "वर्धा" },
+        // नागपूर जिल्हा
+        { n: "भिवगड (कॅुँआरा)", d: 700, r: "नागपूर" },
+        { n: "रामटेक", d: 700, r: "नागपूर" },
+        { n: "नगरधन", d: 700, r: "नागपूर" },
+        { n: "जलालखेडा", d: 700, r: "नागपूर" },
+        { n: "आडम", d: 700, r: "नागपूर" },
+        { n: "उमरेड", d: 700, r: "नागपूर" },
+        { n: "भिवापूर", d: 700, r: "नागपूर" },
+        { n: "सिताबर्डीचा किल्ला", d: 700, r: "नागपूर" },
+        { n: "गोंड राजाचा किल्ला", d: 700, r: "नागपूर" },
+        { n: "महदागड", d: 700, r: "नागपूर" },
+        // चंद्रपूर जिल्हा
+        { n: "चिमूर", d: 770, r: "चंद्रपूर" },
+        { n: "शेगाव", d: 770, r: "चंद्रपूर" },
+        { n: "भांदक (भद्रावती)", d: 770, r: "चंद्रपूर" },
+        { n: "चंद्रपूर भुईकोट किल्ला", d: 770, r: "चंद्रपूर" },
+        { n: "बल्लारपुर", d: 770, r: "चंद्रपूर" },
+        { n: "माणिकगड (चंद्रपूर)", d: 770, r: "चंद्रपूर" },
+        // भंडारा जिल्हा
+        { n: "चांदपूर", d: 750, r: "भंडारा" },
+        { n: "अंबागड", d: 750, r: "भंडारा" },
+        { n: "सानगडी", d: 750, r: "भंडारा" },
+        { n: "पवनी", d: 750, r: "भंडारा" },
+        // गोंदिया जिल्हा
+        { n: "कामठा", d: 800, r: "गोंदिया" },
+        { n: "कचारगड", d: 800, r: "गोंदिया" },
+        { n: "प्रतापगड (गोंदिया)", d: 800, r: "गोंदिया" },
+        // गडचिरोली जिल्हा
+        { n: "वैरागड", d: 800, r: "गडचिरोली" },
+        { n: "टिपागड", d: 800, r: "गडचिरोली" },
+        { n: "सूरजागड", d: 800, r: "गडचिरोली" },
+      ];
+
+      // Deduplicate
+      const seen = new Set();
+      const forts = RAW.filter((f) => {
+        if (seen.has(f.n)) return false;
+        seen.add(f.n);
+        return true;
+      });
+
+      // Group by district, sort within each by distance
+      const districtOrder = [
+        "पुणे",
+        "ठाणे",
+        "रायगड",
+        "पालघर",
+        "सातारा",
+        "अहिल्यानगर",
+        "रत्नागिरी",
+        "नाशिक",
+        "कोल्हापूर",
+        "छत्रपती संभाजीनगर",
+        "धुळे",
+        "जळगाव",
+        "सिंधुदुर्ग",
+        "धाराशिव",
+        "बीड",
+        "नांदेड",
+        "लातूर",
+        "अकोला",
+        "अमरावती",
+        "मुंबई",
+        "नंदुरबार",
+        "सांगली",
+        "सोलापूर",
+        "जालना",
+        "परभणी",
+        "बुलढाणा",
+        "यवतमाळ",
+        "वर्धा",
+        "नागपूर",
+        "चंद्रपूर",
+        "भंडारा",
+        "गोंदिया",
+        "गडचिरोली",
+      ];
+      const districtEmoji = {
+        पुणे: "🟠",
+        ठाणे: "🔵",
+        रायगड: "🟤",
+        पालघर: "🟣",
+        सातारा: "🟡",
+        अहिल्यानगर: "🔴",
+        रत्नागिरी: "🌊",
+        नाशिक: "🟢",
+        कोल्हापूर: "⚪",
+        "छत्रपती संभाजीनगर": "🏛",
+        धुळे: "🟫",
+        जळगाव: "🟨",
+        सिंधुदुर्ग: "🌴",
+        धाराशिव: "⬛",
+        बीड: "🔶",
+        नांदेड: "🔷",
+        लातूर: "🔸",
+        अकोला: "🔹",
+        अमरावती: "🏔",
+        मुंबई: "🌆",
+        नंदुरबार: "🌲",
+        सांगली: "🍇",
+        सोलापूर: "🌻",
+        जालना: "🌾",
+        परभणी: "🐂",
+        बुलढाणा: "🏞",
+        यवतमाळ: "🌿",
+        वर्धा: "🕊",
+        नागपूर: "🍊",
+        चंद्रपूर: "🐯",
+        भंडारा: "🎋",
+        गोंदिया: "🌾",
+        गडचिरोली: "🌳",
+      };
+
+      const grouped = {};
+      districtOrder.forEach((d) => {
+        grouped[d] = [];
+      });
+      forts.forEach((f) => {
+        if (grouped[f.r]) grouped[f.r].push(f);
+      });
+      Object.keys(grouped).forEach((d) => grouped[d].sort((a, b) => a.d - b.d));
+
+      let checked = [];
+      try {
+        checked = JSON.parse(localStorage.getItem("mh-forts-v4") || "[]");
+      } catch (e) {}
+      function saveState() {
+        try {
+          localStorage.setItem("mh-forts-v4", JSON.stringify(checked));
+        } catch (e) {}
+      }
+
+      function updateStats() {
+        const c = checked.length,
+          total = forts.length;
+        const pct = total ? Math.round((c / total) * 100) : 0;
+        document.getElementById("visited-count").textContent = c;
+        document.getElementById("total-count").textContent = total;
+        document.getElementById("remaining-count").textContent = total - c;
+        document.getElementById("percent").textContent = pct + "%";
+        document.getElementById("progress-fill").style.width = pct + "%";
+        document.getElementById("progress-text").textContent =
+          `${c} / ${total} किल्ले`;
+        // Update each section's progress label
+        districtOrder.forEach((dist) => {
+          const el = document.getElementById("prog-" + dist);
+          if (!el) return;
+          const sec = el.closest(".fort-section");
+          const items = sec ? [...sec.querySelectorAll(".fort-item")] : [];
+          const done = items.filter((i) =>
+            i.classList.contains("checked"),
+          ).length;
+          el.textContent = `${done}/${items.length}`;
+        });
+      }
+
+      let activeDistrict = "all",
+        searchQ = "";
+
+      function buildDistrictPills() {
+        const bar = document.querySelector(".dist-filter");
+        districtOrder.forEach((dist) => {
+          if (!grouped[dist] || !grouped[dist].length) return;
+          const btn = document.createElement("button");
+          btn.className = "dist-btn";
+          btn.textContent = dist;
+          btn.onclick = () => filterDistrict(dist, btn);
+          bar.appendChild(btn);
+        });
+      }
+
+      function renderAll() {
+        const container = document.getElementById("fort-sections");
+        container.innerHTML = "";
+        let globalNum = 0;
+        districtOrder.forEach((dist) => {
+          const df = grouped[dist];
+          if (!df || !df.length) return;
+          const avgDist = Math.round(
+            df.reduce((s, f) => s + f.d, 0) / df.length,
+          );
+          const emoji = districtEmoji[dist] || "🏔";
+          const sec = document.createElement("div");
+          sec.className = "fort-section";
+          sec.dataset.district = dist;
+          const hdr = document.createElement("div");
+          hdr.className = "section-header";
+          hdr.innerHTML = `<div class="section-title">${emoji} ${dist} जिल्हा</div>
+      <div class="section-meta">
+        <span>~${avgDist} km · ${df.length} किल्ले</span>
+        <span class="section-progress" id="prog-${dist}">0/${df.length}</span>
+        <span class="collapse-icon">▼</span>
+      </div>`;
+          hdr.addEventListener("click", () => {
+            hdr.classList.toggle("collapsed");
+            grid.classList.toggle("collapsed-grid");
+          });
+          sec.appendChild(hdr);
+          const grid = document.createElement("div");
+          grid.className = "fort-grid";
+          df.forEach((fort) => {
+            const gi = forts.indexOf(fort);
+            globalNum++;
+            const isC = checked.includes(gi);
+            const item = document.createElement("div");
+            item.className = "fort-item" + (isC ? " checked" : "");
+            item.dataset.index = gi;
+            item.dataset.name = fort.n;
+            item.dataset.district = dist;
+            item.innerHTML = `<span class="fort-num">${globalNum}</span><div class="checkbox"><span class="checkmark">✓</span></div><div class="fort-info"><div class="fort-name">${fort.n}</div><div class="fort-dist">~${fort.d} km पुण्यापासून</div></div>`;
+            item.addEventListener("click", () => {
+              const pos = checked.indexOf(gi);
+              if (pos === -1) checked.push(gi);
+              else checked.splice(pos, 1);
+              saveState();
+              item.classList.toggle("checked");
+              updateStats();
+            });
+            grid.appendChild(item);
+          });
+          sec.appendChild(grid);
+          container.appendChild(sec);
+        });
+        applyFilters();
+        updateStats();
+      }
+
+      function applyFilters() {
+        let vis = 0;
+        document.querySelectorAll(".fort-item").forEach((el) => {
+          const matchS = !searchQ || el.dataset.name.includes(searchQ);
+          const matchD =
+            activeDistrict === "all" || el.dataset.district === activeDistrict;
+          const show = matchS && matchD;
+          el.classList.toggle("hidden", !show);
+          if (show) vis++;
+        });
+        document.querySelectorAll(".fort-section").forEach((sec) => {
+          const any = [...sec.querySelectorAll(".fort-item")].some(
+            (e) => !e.classList.contains("hidden"),
+          );
+          sec.style.display = any ? "" : "none";
+        });
+        document.getElementById("no-results").style.display =
+          vis === 0 ? "block" : "none";
+      }
+
+      function filterDistrict(val, btn) {
+        activeDistrict = val;
+        document
+          .querySelectorAll(".dist-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        applyFilters();
+      }
+
+      function checkAll() {
+        checked = forts.map((_, i) => i);
+        saveState();
+        document
+          .querySelectorAll(".fort-item")
+          .forEach((el) => el.classList.add("checked"));
+        updateStats();
+      }
+      function clearAll() {
+        if (!confirm("सर्व चेकमार्क काढायचे?")) return;
+        checked = [];
+        saveState();
+        document
+          .querySelectorAll(".fort-item")
+          .forEach((el) => el.classList.remove("checked"));
+        updateStats();
+      }
+      document.getElementById("search").addEventListener("input", function () {
+        searchQ = this.value.trim();
+        applyFilters();
+      });
+
+      buildDistrictPills();
+      renderAll();
+    </script>
+  </body>
+</html>
